@@ -55,7 +55,6 @@ export class ReunionFormComponent implements OnInit {
     this.eventObj = {};
     this.eventFormGroupCreator();
 
-    console.log(this.eventObj);
     this.reunionForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -94,6 +93,7 @@ export class ReunionFormComponent implements OnInit {
       guestLastName: [''],
       comments: [''],
     });
+    console.log(this.reunionForm);
   }
 
   ngOnInit(): void {}

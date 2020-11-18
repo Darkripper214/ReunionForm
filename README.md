@@ -1,3 +1,19 @@
+Alternative method using nested Angular FormGroup instead of Form Array.
+
+**Reunion-form.component.ts**
+
+![Reunion-form.component.ts](src\assets\Code1.PNG)
+
+**Reunion-form.component.html**
+
+Rendering of checkbox by looping the created `events` FormGroup
+
+![Reunion-form.component.html](src\assets\Code2.PNG)
+
+Produces events object with event name as `key` and attendance as `value`
+
+![Result](src\assets\Code3.PNG)
+
 # SchoolForm
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
@@ -14,14 +30,3 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
