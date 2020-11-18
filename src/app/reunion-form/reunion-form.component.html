@@ -1,0 +1,205 @@
+<div class="container">
+  <form class="form-group" [formGroup]="reunionForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-12">
+        <label>Name</label>
+      </div>
+
+      <div class="col-6">
+        <input type="text" formControlName="firstName" id="firstName" />
+      </div>
+
+      <div class="col-6">
+        <input type="text" formControlName="lastName" id="lastName" />
+      </div>
+      <div class="col-12">
+        <p
+          *ngIf="
+            reunionForm.get('lastName').hasError('required') ||
+            reunionForm.get('firstName').hasError('required')
+          "
+        >
+          Please input
+        </p>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-12">
+        <label>Spouse or Guest Name</label>
+      </div>
+      <br />
+      <div class="col-6">
+        <input
+          type="text"
+          formControlName="guestFirstName"
+          id="guestFirstName"
+        />
+      </div>
+
+      <div class="col-6">
+        <input type="text" formControlName="guestLastName" id="guestLastName" />
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-12">
+        <label>Phone-Number</label>
+      </div>
+      <div class="col-4">
+        <input
+          type="text"
+          formControlName="phoneNumber1"
+          size="3"
+          minlength="3"
+        />
+      </div>
+      <div class="col-4">
+        <input type="text" formControlName="phoneNumber2" size="3" />
+      </div>
+      <div class="col-4">
+        <input type="text" formControlName="phoneNumber3" size="4" />
+      </div>
+
+      <div class="col-4">
+        <p *ngIf="reunionForm.get('phoneNumber1').hasError('required')">
+          Please input
+        </p>
+        <p *ngIf="reunionForm.get('phoneNumber1').hasError('pattern')">
+          Please input 3 digit number only!
+        </p>
+        <p
+          *ngIf="
+            reunionForm.get('phoneNumber1').hasError('minlength') ||
+            reunionForm.get('phoneNumber1').hasError('maxlength')
+          "
+        >
+          Please input 3 digit only!
+        </p>
+      </div>
+
+      <div class="col-4">
+        <p *ngIf="reunionForm.get('phoneNumber2').hasError('required')">
+          Please input
+        </p>
+        <p *ngIf="reunionForm.get('phoneNumber2').hasError('pattern')">
+          Please input 3 digit number only!
+        </p>
+        <p
+          *ngIf="
+            reunionForm.get('phoneNumber2').hasError('minlength') ||
+            reunionForm.get('phoneNumber2').hasError('maxlength')
+          "
+        >
+          Please input 3 digit only!
+        </p>
+      </div>
+
+      <div class="col-4">
+        <p *ngIf="reunionForm.get('phoneNumber3').hasError('required')">
+          Please input
+        </p>
+        <p *ngIf="reunionForm.get('phoneNumber3').hasError('pattern')">
+          Please input 4 digit number only!
+        </p>
+        <p
+          *ngIf="
+            reunionForm.get('phoneNumber3').hasError('minlength') ||
+            reunionForm.get('phoneNumber3').hasError('maxlength')
+          "
+        >
+          Please input 4 digit only!
+        </p>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-12">
+        <label>Email</label>
+      </div>
+
+      <br />
+      <div class="col-12">
+        <input type="email" formControlName="email" id="phoneNumber" />
+        <p
+          *ngIf="
+            reunionForm.get('email').hasError('required') ||
+            reunionForm.get('email').hasError('email')
+          "
+        >
+          Please input valid email
+        </p>
+      </div>
+      <div></div>
+    </div>
+    <hr />
+    <div class="form-group">
+      <label> Which events will you be attending? </label>
+      <br />
+      <div class="row">
+        <label
+          class="col-12"
+          formArrayName="events"
+          *ngFor="
+            let attend of reunionForm.controls.events.controls | keyvalue;
+            let i = index
+          "
+        >
+          <input type="checkbox" [formControlName]="attend.key" />
+          {{ attend.key }}
+        </label>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <label class="col-12"
+        >Would you like to pre-order a reunion DVD ($19.95$)</label
+      >
+      <br />
+      <div class="col-2">
+        <input
+          type="radio"
+          name="dvd"
+          formControlName="dvd"
+          value="true"
+          id="yes"
+        />
+        <label for="yes">Yes</label>
+      </div>
+
+      <div class="col-2">
+        <input
+          type="radio"
+          name="dvd"
+          formControlName="dvd"
+          value="false"
+          id="no"
+        />
+        <label for="no">No</label>
+      </div>
+    </div>
+    <hr />
+    <div class="">
+      <label>Comments or Questions</label>
+      <br />
+      <textarea
+        name="comments"
+        id="comments"
+        cols="30"
+        rows="10"
+        formControlName="comments"
+      ></textarea>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!reunionForm.valid"
+    >
+      Submit
+    </button>
+  </form>
+
+  <button type="button" (click)="logError()" class="btn btn-danger">
+    Log Form Group > Form Control
+  </button>
+</div>
