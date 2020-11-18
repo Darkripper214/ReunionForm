@@ -2,17 +2,17 @@ Alternative method using nested Angular FormGroup instead of Form Array.
 
 **Reunion-form.component.ts**
 
-![Reunion-form.component.ts](src\assets\Code1.PNG)
+![Reunion-form.component.ts](src/assets/Code1.PNG)
 
 **Reunion-form.component.html**
 
 Rendering of checkbox by looping the created `events` FormGroup
 
-![Reunion-form.component.html](src\assets\Code2.PNG)
+![Reunion-form.component.html](src/assets/Code2.PNG)
 
 Produces events object with event name as `key` and attendance as `value`
 
-![Result](src\assets\Code3.PNG)
+![Result](src/assets/Code3.PNG)
 
 # SchoolForm
 
