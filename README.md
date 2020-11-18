@@ -12,7 +12,7 @@ Rendering of checkbox by looping the created `events` FormGroup
 
 Produces events object with event name as `key` and attendance as `value`
 
-![Result](src/assets/Code3.PNG)
+![Result](src/assets/Code3.png)
 
 # SchoolForm
 
